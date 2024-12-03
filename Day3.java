@@ -23,7 +23,8 @@ public class Day3 {
         }
 
 
-        String input = dataList.get(0);
+        //String input = dataList.get(0);
+        String input = "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))";
 
         String regex = "mul\\(\\d{1,3},\\d{1,3}\\)";
 
@@ -37,7 +38,9 @@ public class Day3 {
             matches.add(matcher.group());
         }
 
-        
+        for (String item: matches) {
+            System.out.println(item);
+        }
 
 
     }
