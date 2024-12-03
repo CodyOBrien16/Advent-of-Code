@@ -23,8 +23,8 @@ public class Day3 {
         }
 
 
-        //String input = dataList.get(0);
-        String input = "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))";
+        String input = dataList.get(0);
+        //String input = "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))";
 
         String regex = "mul\\(\\d{1,3},\\d{1,3}\\)";
 
@@ -37,11 +37,27 @@ public class Day3 {
         while (matcher.find()) {
             matches.add(matcher.group());
         }
-
-        for (String item: matches) {
-            System.out.println(item);
+        
+        String[][] StrNums = new String[matches.size()][2];
+        //for (String item: matches) {
+        for (int i = 0; i < matches.size(); i++) {
+            String temp = matches.get(i).substring(4,matches.get(i).length()-1);
+            StrNums[i] = temp.split(",");
+        }
+        int[] sumList = new int[matches.size()];
+        for (int i = 0; i<StrNums.length; i++) {
+            int multTotal = 1;
+            for (int j = 0; j<StrNums[i].length; j++) {
+                multTotal *= Integer.parseInt(StrNums[i][j]);
+            }
+            sumList[i] = multTotal;
         }
 
+        int total = 0;
+        for (int num : sumList) {
+            total += num;
+        }
+        System.out.println(total);
 
     }
 }
