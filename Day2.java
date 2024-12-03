@@ -39,7 +39,9 @@ public class Day2 {
                 totalSafe++;
             } else {
                 // add to this so that we can see the unsafe items become safe if you remove an item.
-                isSafe2(itemList);
+                if (isSafe2(itemList)) {
+                    totalSafe++;
+                }
             }
 
 
