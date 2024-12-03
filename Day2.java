@@ -7,25 +7,25 @@ public class Day2 {
     public static void main(String[] args) {
         ArrayList<String> dataList = new ArrayList<String>();
 
-        // try {
-        // File myObj = new File("input2.2.txt");
-        // Scanner myReader = new Scanner(myObj);
-        // while (myReader.hasNextLine()) {
-        //     String data = myReader.nextLine();
-        //     dataList.add(data);
-        // }
-        // myReader.close();
-        // } catch (FileNotFoundException e) {
-        // System.out.println("An error occurred.");
-        // e.printStackTrace();
-        // }
+        try {
+        File myObj = new File("input2.2.txt");
+        Scanner myReader = new Scanner(myObj);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            dataList.add(data);
+        }
+        myReader.close();
+        } catch (FileNotFoundException e) {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
+        }
 
-        dataList.add("7 6 4 2 1");
-        dataList.add("1 2 7 8 9");
-        dataList.add("9 7 6 2 1");
-        dataList.add("1 3 2 4 5");
-        dataList.add("8 6 4 4 1");
-        dataList.add("1 3 6 7 9");
+        // dataList.add("7 6 4 2 1");
+        // dataList.add("1 2 7 8 9");
+        // dataList.add("9 7 6 2 1");
+        // dataList.add("1 3 2 4 5");
+        // dataList.add("8 6 4 4 1");
+        // dataList.add("1 3 6 7 9");
 
 
 
