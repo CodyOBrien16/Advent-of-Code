@@ -9,18 +9,18 @@ public class Day4 {
     public static void main(String[] args) {
         ArrayList<String> dataList = new ArrayList<String>();
 
-        // try {
-        // File myObj = new File("input2.4.txt");
-        // Scanner myReader = new Scanner(myObj);
-        // while (myReader.hasNextLine()) {
-        //     String data = myReader.nextLine();
-        //     dataList.add(data);
-        // }
-        // myReader.close();
-        // } catch (FileNotFoundException e) {
-        // System.out.println("An error occurred.");
-        // e.printStackTrace();
-        // }
+        try {
+        File myObj = new File("input2.4.txt");
+        Scanner myReader = new Scanner(myObj);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            dataList.add(data);
+        }
+        myReader.close();
+        } catch (FileNotFoundException e) {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
+        }
 
         // dataList.add("MMMSXXMASM");
         // dataList.add("MSAMXMSMSA");
@@ -134,8 +134,25 @@ public class Day4 {
             for (int j = 0; j < inputList[i].length; j++) {
                 if (inputList[i][j] == 'A') {
                     if (i != 0 && i != inputList.length-1 && j != 0 && j != inputList[i].length-1) {
-                        
+                        //check type MSSM
+                        if (inputList[i-1][j-1] == 'M' && inputList[i-1][j+1] == 'S' && inputList[i+1][j+1] == 'S' && inputList[i+1][j-1] == 'M') {
+                            total += 1;
+                        }
+
+                        //check type MMSS
+                        if (inputList[i-1][j-1] == 'M' && inputList[i-1][j+1] == 'M' && inputList[i+1][j+1] == 'S' && inputList[i+1][j-1] == 'S') {
+                            total += 1;
+                        }
+                        //check type SMMS
+                        if (inputList[i-1][j-1] == 'S' && inputList[i-1][j+1] == 'M' && inputList[i+1][j+1] == 'M' && inputList[i+1][j-1] == 'S') {
+                            total += 1;
+                        }
+                        //check type SSMM
+                        if (inputList[i-1][j-1] == 'S' && inputList[i-1][j+1] == 'S' && inputList[i+1][j+1] == 'M' && inputList[i+1][j-1] == 'M') {
+                            total += 1;
+                        }
                     }
+                }
             }
         }
         System.out.println(total);
