@@ -53,6 +53,7 @@ public class Day4 {
                     if (j < width-4 && j >= 0) {
                         //System.out.println("right");
                         if(inputList[i][j+1] == 'M' && inputList[i][j+2] == 'A' && inputList[i][j+3] == 'S') {
+                            System.out.println("Found right");
                             total += 1;
                         }
                     }
@@ -61,6 +62,7 @@ public class Day4 {
                     if (j > 3 && j < width-1) {
                         //System.out.println("left");
                         if(inputList[i][j-1] == 'M' && inputList[i][j-2] == 'A' && inputList[i][j-3] == 'S') {
+                            System.out.println("Found left");
                             total += 1;
                         }
                     }
@@ -69,6 +71,7 @@ public class Day4 {
                     if (i > 3 && i < length-1) {
                         //System.out.println("up");
                         if(inputList[i-1][j] == 'M' && inputList[i-2][j] == 'A' && inputList[i-3][j] == 'S') {
+                            System.out.println("Found up");
                             total += 1;
                         }
                     }
@@ -77,6 +80,7 @@ public class Day4 {
                     if (i < length-4 && i >= 0) {
                         //System.out.println("down");
                         if(inputList[i+1][j] == 'M' && inputList[i+2][j] == 'A' && inputList[i+3][j] == 'S') {
+                            System.out.println("Found down");
                             total += 1;
                         }
                     }
@@ -84,6 +88,7 @@ public class Day4 {
                     // check if can look diagonal up/right
                     if (j < width-4 && j >= 0 && i > 3 && i < length-1) {
                         if(inputList[i-1][j+1] == 'M' && inputList[i-2][j+2] == 'A' && inputList[i-3][j+3] == 'S') {
+                            System.out.println("Found up/right");
                             total += 1;
                         }
                     }
@@ -93,6 +98,7 @@ public class Day4 {
                     if (i < length-4 && i >= 0 && j < width-4 && j >= 0) {
                         if(inputList[i+1][j+1] == 'M' && inputList[i+2][j+2] == 'A' && inputList[i+3][j+3] == 'S') {
                             total += 1;
+                            System.out.println("Found down/right");
                         }
                     }
 
@@ -100,6 +106,7 @@ public class Day4 {
                     if (i < length-4 && i >= 0 && j > 3 && j < width-1) {
                         if(inputList[i+1][j-1] == 'M' && inputList[i+2][j-2] == 'A' && inputList[i+3][j-3] == 'S') {
                             total += 1;
+                            System.out.println("Found down/left");
                         }
                     }
 
@@ -107,6 +114,7 @@ public class Day4 {
                     if (i > 3 && i < length-1 && j > 3 && j < width-1) {
                         if(inputList[i-1][j-1] == 'M' && inputList[i-2][j-2] == 'A' && inputList[i-3][j-3] == 'S') {
                             total += 1;
+                            System.out.println("Found up/left");
                         }
                     }
 
