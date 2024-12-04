@@ -50,23 +50,46 @@ public class Day4 {
             for (int j = 0; j < inputList[i].length; j++) {
                 if (inputList[i][j] == 'X') {
                     //check if can look right
-                    if (j > width-4) {
+                    if (j < width-4 && j > 0) {
                         //add logic
                     }
 
                     // check if can look left
+                    if (j > 3 && j < width-1) {
+
+                    }
 
                     // check if can look up
+                    if (i > 3 && i < length-1) {
+
+                    }
 
                     // check if can look down
+                    if (i < length-4 && i > 0) {
+
+                    }
 
                     // check if can look diagonal up/right
+                    if (j < width-4 && j > 0 && i > 3 && i < length-1) {
+
+                    }
+
 
                     // check if can look diagonal down/right
+                    if (i < length-4 && i > 0 && j < width-4 && j > 0) {
+
+                    }
 
                     // check if can look diagonal down/left
+                    if (i < length-4 && i > 0 && j > 3 && j < width-1) {
+
+                    }
 
                     // check if can look diagonal up/left
+                    if (i > 3 && i < length-1 && j > 3 && j < width-1) {
+
+                    }
+
                 }
             }
         }
