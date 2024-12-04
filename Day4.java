@@ -40,9 +40,36 @@ public class Day4 {
             }
         }
         
-        // for (int i = 0; i < inputList.length; i++){
-        //     System.out.println(Arrays.toString(inputList[i]));
-        // }
+        for (char[] item : inputList) {
+            System.out.println(Arrays.toString(item));
+        }
+
+        int length = inputList.length;
+        int width = inputList[0].length;
+        for (int i = 0; i < inputList.length; i++){
+            for (int j = 0; j < inputList[i].length; j++) {
+                if (inputList[i][j] == 'X') {
+                    //check if can look right
+                    if (j > width-4) {
+                        //add logic
+                    }
+
+                    // check if can look left
+
+                    // check if can look up
+
+                    // check if can look down
+
+                    // check if can look diagonal up/right
+
+                    // check if can look diagonal down/right
+
+                    // check if can look diagonal down/left
+
+                    // check if can look diagonal up/left
+                }
+            }
+        }
 
         
     }
