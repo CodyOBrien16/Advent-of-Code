@@ -76,30 +76,33 @@ public class Day5 {
             // get all the inputs into a list of lists
 
             System.out.println(patternList.get(i));
-            //String temp = patternList.get(i).split("|");
-            System.out.println(patternList.get(i).split("|"));
-            // patternList2[i][0] = temp[0];
-            // patternList2[i][1] = temp[1];
+            String temp = patternList.get(i);
+            temp = temp.replace('|', ',');
+            String[] temp2 = temp.split(",");
+            //System.out.println(temp);
+            //System.out.println(Arrays.toString(temp2));
+            patternList2[i][0] = temp2[0];
+            patternList2[i][1] = temp2[1];
         }
 
-        // for (String[] item : patternList2) {
-        //     System.out.println(Arrays.toString(item));
-        // }
+        for (String[] item : patternList2) {
+            System.out.println(Arrays.toString(item));
+        }
 
         //get updateList into a list of numbers
 
 
         //go through each update list
-        for (int i = 0; i < updateList.size(); i++) {
-            currentList = updateList.get(i).split(",");
+        // for (int i = 0; i < updateList.size(); i++) {
+        //     String[] currentList = updateList.get(i).split(",");
 
-            //sort through patterns to find matches
-            for (int j = 0; j < patternList2.length; j++) {
-                if (currentList.contains(patternList2[i][0]) && currentList.contains(patternList2[i][1])) {
-                    //logic to check if the order is correct
-                }
-            }
-        }
+        //     //sort through patterns to find matches
+        //     for (int j = 0; j < patternList2.length; j++) {
+        //         if (currentList.contains(patternList2[i][0]) && currentList.contains(patternList2[i][1])) {
+        //             //logic to check if the order is correct
+        //         }
+        //     }
+        // }
 
 
 
