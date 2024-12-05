@@ -75,7 +75,7 @@ public class Day5 {
         for (int i = 0; i < patternList.size(); i++) {
             // get all the inputs into a list of lists
 
-            System.out.println(patternList.get(i));
+            //System.out.println(patternList.get(i));
             String temp = patternList.get(i);
             temp = temp.replace('|', ',');
             String[] temp2 = temp.split(",");
@@ -93,16 +93,15 @@ public class Day5 {
 
 
         //go through each update list
-        // for (int i = 0; i < updateList.size(); i++) {
-        //     String[] currentList = updateList.get(i).split(",");
+        for (int i = 0; i < updateList.size(); i++) {
+            String[] currentList = updateList.get(i).split(",");
+            //System.out.println(Arrays.toString(currentList));
 
-        //     //sort through patterns to find matches
-        //     for (int j = 0; j < patternList2.length; j++) {
-        //         if (currentList.contains(patternList2[i][0]) && currentList.contains(patternList2[i][1])) {
-        //             //logic to check if the order is correct
-        //         }
-        //     }
-        // }
+            //sort through patterns to find matches
+            for (int j = 0; j < patternList2.length; j++) {
+                
+            }
+        }
 
 
 
