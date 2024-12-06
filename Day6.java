@@ -66,7 +66,9 @@ public class Day6 {
             if (direction.equals("North")) {
                 if (inputList[currentY-1][currentX] != '#') {
                     currentY -= 1;
-                    timesMoved += 1;
+                    temp[0] = currentY;
+                    temp[1] = currentX;
+                    positionsBeen.add(temp);
                 } else if (inputList[currentY-1][currentX] == '#') {
                     direction = "East";
                 }
@@ -74,7 +76,9 @@ public class Day6 {
             } else if (direction.equals("East")){
                 if (inputList[currentY][currentX+1] != '#') {
                     currentX += 1;
-                    timesMoved += 1;
+                    temp[0] = currentY;
+                    temp[1] = currentX;
+                    positionsBeen.add(temp);
                 } else if (inputList[currentY][currentX+1] == '#') {
                     direction = "South";
                 }
@@ -82,7 +86,9 @@ public class Day6 {
             } else if (direction.equals("South")){
                 if (inputList[currentY+1][currentX] != '#') {
                     currentY += 1;
-                    timesMoved += 1;
+                    temp[0] = currentY;
+                    temp[1] = currentX;
+                    positionsBeen.add(temp);
                 } else if (inputList[currentY+1][currentX] == '#') {
                     direction = "West";
                 }
@@ -90,14 +96,16 @@ public class Day6 {
             } else if (direction.equals("West")){
                 if (inputList[currentY][currentX-1] != '#') {
                     currentX -= 1;
-                    timesMoved += 1;
+                    temp[0] = currentY;
+                    temp[1] = currentX;
+                    positionsBeen.add(temp);
                 } else if (inputList[currentY][currentX-1] == '#') {
                     direction = "North";
                 }
             } 
         }
 
-        System.out.println(timesMoved + 1);
+        System.out.println(positionsBeen.size());
 
     }
 }
