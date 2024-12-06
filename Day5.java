@@ -42,7 +42,7 @@ public class Day5 {
         // dataList.add("47|29");
         // dataList.add("75|13");
         // dataList.add("53|13");
-        // dataList.add(" ");
+        // dataList.add("");
         // dataList.add("75,47,61,53,29");
         // dataList.add("97,61,53,29,13");
         // dataList.add("75,29,13");
@@ -56,7 +56,7 @@ public class Day5 {
         boolean part2 = false;
 
         for (String item : dataList) {
-            if (item == " ") {
+            if (item.length() == 0) {
                 part2 = true;
             }
             else if (part2 == false) {
@@ -80,16 +80,20 @@ public class Day5 {
             temp = temp.replace('|', ',');
             String[] temp2 = temp.split(",");
             //System.out.println(temp);
-            //System.out.println(Arrays.toString(temp2));
+            System.out.println(Arrays.toString(temp2));
+
             patternList2[i][0] = temp2[0];
             patternList2[i][1] = temp2[1];
         }
 
-        // for (String[] item : patternList2) {
-        //     System.out.println(Arrays.toString(item));
+        // for (String item : updateList) {
+        //     System.out.println(item);
         // }
 
         //get updateList into a list of numbers
+
+
+
 
         ArrayList<String> finalList = new ArrayList<>();
         //go through each update list
