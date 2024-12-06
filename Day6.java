@@ -61,6 +61,8 @@ public class Day6 {
         int[] temp = {currentY, currentX};
         positionsBeen.add(temp);
 
+        // Fix logic to not add if its a duplicate
+
         //check spot above cursor
         while (currentX > 0 && currentX < inputList[0].length-1 && currentY > 0 && currentY < inputList.length-1) {
             if (direction.equals("North")) {
