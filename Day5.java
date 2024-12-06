@@ -85,25 +85,39 @@ public class Day5 {
             patternList2[i][1] = temp2[1];
         }
 
-        for (String[] item : patternList2) {
-            System.out.println(Arrays.toString(item));
-        }
+        // for (String[] item : patternList2) {
+        //     System.out.println(Arrays.toString(item));
+        // }
 
         //get updateList into a list of numbers
 
-
+        ArrayList<String> finalList = new ArrayList<>();
         //go through each update list
         for (int i = 0; i < updateList.size(); i++) {
-            String[] currentList = updateList.get(i).split(",");
+            String currentList = updateList.get(i);
+            boolean correctOrder = false;
             //System.out.println(Arrays.toString(currentList));
 
             //sort through patterns to find matches
             for (int j = 0; j < patternList2.length; j++) {
-                
+                if (currentList.contains(patternList2[i][0]) && currentList.contains(patternList2[i][1])) {
+                    //add logic to check here
+                    if (currentList.indexOf(patternList2[i][0]) > currentList.indexOf(patternList2[i][1])) {
+                        correctOrder = true;
+                    } else {
+                        correctOrder = false;
+                        break;
+                    }
+                }
+            }
+            if (correctOrder) {
+                finalList.add(currentList);
             }
         }
 
-
+        for (String item : finalList) {
+            System.out.println(item);
+        }
 
     }
 }
