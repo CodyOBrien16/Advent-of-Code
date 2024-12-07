@@ -70,7 +70,10 @@ public class Day6 {
                     currentY -= 1;
                     temp[0] = currentY;
                     temp[1] = currentX;
-                    positionsBeen.add(temp);
+                    if (!positionsBeen.contains(temp)) {
+                        positionsBeen.add(temp);
+                    }
+                    
                 } else if (inputList[currentY-1][currentX] == '#') {
                     direction = "East";
                 }
@@ -80,7 +83,9 @@ public class Day6 {
                     currentX += 1;
                     temp[0] = currentY;
                     temp[1] = currentX;
-                    positionsBeen.add(temp);
+                    if (!positionsBeen.contains(temp)) {
+                        positionsBeen.add(temp);
+                    }
                 } else if (inputList[currentY][currentX+1] == '#') {
                     direction = "South";
                 }
@@ -90,7 +95,9 @@ public class Day6 {
                     currentY += 1;
                     temp[0] = currentY;
                     temp[1] = currentX;
-                    positionsBeen.add(temp);
+                    if (positionsBeen.contains(temp)) {
+                        positionsBeen.add(temp);
+                    }
                 } else if (inputList[currentY+1][currentX] == '#') {
                     direction = "West";
                 }
@@ -100,7 +107,9 @@ public class Day6 {
                     currentX -= 1;
                     temp[0] = currentY;
                     temp[1] = currentX;
-                    positionsBeen.add(temp);
+                    if (!positionsBeen.contains(temp)) {
+                        positionsBeen.add(temp);
+                    }
                 } else if (inputList[currentY][currentX-1] == '#') {
                     direction = "North";
                 }
