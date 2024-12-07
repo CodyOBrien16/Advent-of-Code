@@ -67,7 +67,7 @@ public class Day6 {
         while (currentX > 0 && currentX < inputList[0].length-1 && currentY > 0 && currentY < inputList.length-1) {
             if (direction.equals("North")) {
                 if (inputList[currentY-1][currentX] != '#') {
-                    currentY -= 1;
+                    currentY = currentY - 1;
                     temp[0] = currentY;
                     temp[1] = currentX;
                     if (!positionsBeen.contains(temp)) {
