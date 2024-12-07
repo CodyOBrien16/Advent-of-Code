@@ -40,9 +40,9 @@ public class Day6 {
             }
         }
         
-        for (char[] item : inputList) {
-            System.out.println(Arrays.toString(item));
-        }
+        // for (char[] item : inputList) {
+        //     System.out.println(Arrays.toString(item));
+        // }
 
         int currentX = 0;
         int currentY = 0;
@@ -112,6 +112,9 @@ public class Day6 {
             } 
         }
 
+        // for (String string : positionsBeen) {
+        //     System.out.println(string);
+        // }
         System.out.println(positionsBeen.size());
 
     }
