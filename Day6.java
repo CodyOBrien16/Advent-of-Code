@@ -8,29 +8,29 @@ public class Day6 {
     public static void main(String[] args) {
         ArrayList<String> dataList = new ArrayList<String>();
 
-        // try {
-        // File myObj = new File("input2.6.txt");
-        // Scanner myReader = new Scanner(myObj);
-        // while (myReader.hasNextLine()) {
-        //     String data = myReader.nextLine();
-        //     dataList.add(data);
-        // }
-        // myReader.close();
-        // } catch (FileNotFoundException e) {
-        // System.out.println("An error occurred.");
-        // e.printStackTrace();
-        // }
+        try {
+        File myObj = new File("input2.6.txt");
+        Scanner myReader = new Scanner(myObj);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            dataList.add(data);
+        }
+        myReader.close();
+        } catch (FileNotFoundException e) {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
+        }
 
-        dataList.add("....#.....");
-        dataList.add(".........#");
-        dataList.add("..........");
-        dataList.add("..#.......");
-        dataList.add(".......#..");
-        dataList.add("..........");
-        dataList.add(".#..^.....");
-        dataList.add("........#.");
-        dataList.add("#.........");
-        dataList.add("......#...");
+        // dataList.add("....#.....");
+        // dataList.add(".........#");
+        // dataList.add("..........");
+        // dataList.add("..#.......");
+        // dataList.add(".......#..");
+        // dataList.add("..........");
+        // dataList.add(".#..^.....");
+        // dataList.add("........#.");
+        // dataList.add("#.........");
+        // dataList.add("......#...");
 
 
         char[][] inputList = new char[dataList.size()][dataList.get(0).length()];
@@ -57,8 +57,8 @@ public class Day6 {
             }
         }
 
-        ArrayList<int[]> positionsBeen = new ArrayList<>();
-        int[] temp = {currentY, currentX};
+        ArrayList<String> positionsBeen = new ArrayList<>();
+        String temp = Integer.toString(currentY) + Integer.toString(currentX);
         positionsBeen.add(temp);
 
         // Fix logic to not add if its a duplicate
@@ -68,10 +68,9 @@ public class Day6 {
             if (direction.equals("North")) {
                 if (inputList[currentY-1][currentX] != '#') {
                     currentY = currentY - 1;
-                    temp[0] = currentY;
-                    temp[1] = currentX;
-                    if (!positionsBeen.contains(temp)) {
-                        positionsBeen.add(temp);
+                    String temp2 = Integer.toString(currentY) + Integer.toString(currentX);
+                    if (!positionsBeen.contains(temp2)) {
+                        positionsBeen.add(temp2);
                     }
                     
                 } else if (inputList[currentY-1][currentX] == '#') {
@@ -81,10 +80,9 @@ public class Day6 {
             } else if (direction.equals("East")){
                 if (inputList[currentY][currentX+1] != '#') {
                     currentX += 1;
-                    temp[0] = currentY;
-                    temp[1] = currentX;
-                    if (!positionsBeen.contains(temp)) {
-                        positionsBeen.add(temp);
+                    String temp3 = Integer.toString(currentY) + Integer.toString(currentX);
+                    if (!positionsBeen.contains(temp3)) {
+                        positionsBeen.add(temp3);
                     }
                 } else if (inputList[currentY][currentX+1] == '#') {
                     direction = "South";
@@ -93,10 +91,9 @@ public class Day6 {
             } else if (direction.equals("South")){
                 if (inputList[currentY+1][currentX] != '#') {
                     currentY += 1;
-                    temp[0] = currentY;
-                    temp[1] = currentX;
-                    if (positionsBeen.contains(temp)) {
-                        positionsBeen.add(temp);
+                    String temp4 = Integer.toString(currentY) + Integer.toString(currentX);
+                    if (!positionsBeen.contains(temp4)) {
+                        positionsBeen.add(temp4);
                     }
                 } else if (inputList[currentY+1][currentX] == '#') {
                     direction = "West";
@@ -105,10 +102,9 @@ public class Day6 {
             } else if (direction.equals("West")){
                 if (inputList[currentY][currentX-1] != '#') {
                     currentX -= 1;
-                    temp[0] = currentY;
-                    temp[1] = currentX;
-                    if (!positionsBeen.contains(temp)) {
-                        positionsBeen.add(temp);
+                    String temp5 = Integer.toString(currentY) + Integer.toString(currentX);
+                    if (!positionsBeen.contains(temp5)) {
+                        positionsBeen.add(temp5);
                     }
                 } else if (inputList[currentY][currentX-1] == '#') {
                     direction = "North";
