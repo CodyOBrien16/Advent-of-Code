@@ -56,6 +56,8 @@ public class Day6 {
                 }
             }
         }
+        System.out.println(currentY);
+        System.out.println(currentX);
 
         ArrayList<String> positionsBeen = new ArrayList<>();
         String temp = Integer.toString(currentY) + Integer.toString(currentX);
