@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+
+// create a function that has a parameter of the map and goes through until it reaches the edges of the map. If it moves over 10k times return true otherwise retrun false
+// have a for loop that iterates through every spot on the map and replaces it with a # then calls the method with that new list as input.
+// If the function returns true (it creates infinite loop) add that spot to a list then replace the # back to a "."
+
+
 public class Day6 {
     public static void main(String[] args) {
         ArrayList<String> dataList = new ArrayList<String>();
@@ -56,8 +62,8 @@ public class Day6 {
                 }
             }
         }
-        System.out.println(currentY);
-        System.out.println(currentX);
+        // System.out.println(currentY);
+        // System.out.println(currentX);
 
         ArrayList<String> positionsBeen = new ArrayList<>();
         String temp = Integer.toString(currentY) + "," + Integer.toString(currentX);
@@ -66,10 +72,12 @@ public class Day6 {
 
 
         //check spot above cursor
+        int moved = 0;
         while (currentX > 0 && currentX < inputList[0].length-1 && currentY > 0 && currentY < inputList.length-1) {
             if (direction.equals("North")) {
                 if (inputList[currentY-1][currentX] != '#') {
                     currentY = currentY - 1;
+                    moved += 1;
                     String temp2 = Integer.toString(currentY) + "," + Integer.toString(currentX);
                     if (!positionsBeen.contains(temp2)) {
                         positionsBeen.add(temp2);
@@ -82,6 +90,7 @@ public class Day6 {
             } else if (direction.equals("East")){
                 if (inputList[currentY][currentX+1] != '#') {
                     currentX += 1;
+                    moved += 1;
                     String temp3 = Integer.toString(currentY) + "," + Integer.toString(currentX);
                     if (!positionsBeen.contains(temp3)) {
                         positionsBeen.add(temp3);
@@ -93,6 +102,7 @@ public class Day6 {
             } else if (direction.equals("South")){
                 if (inputList[currentY+1][currentX] != '#') {
                     currentY += 1;
+                    moved += 1;
                     String temp4 = Integer.toString(currentY) + "," + Integer.toString(currentX);
                     if (!positionsBeen.contains(temp4)) {
                         positionsBeen.add(temp4);
@@ -104,6 +114,7 @@ public class Day6 {
             } else if (direction.equals("West")){
                 if (inputList[currentY][currentX-1] != '#') {
                     currentX -= 1;
+                    moved += 1;
                     String temp5 = Integer.toString(currentY) + "," + Integer.toString(currentX);
                     if (!positionsBeen.contains(temp5)) {
                         positionsBeen.add(temp5);
@@ -112,12 +123,16 @@ public class Day6 {
                     direction = "North";
                 }
             } 
+            if (moved > 6000) {
+                break;
+            }
         }
+        System.out.println(moved);
 
-        for (String string : positionsBeen) {
-            System.out.println(string);
-        }
-        System.out.println(positionsBeen.size());
+        // for (String string : positionsBeen) {
+        //     System.out.println(string);
+        // }
+        // System.out.println(positionsBeen.size());
 
     }
 }
