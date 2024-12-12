@@ -10,7 +10,7 @@ import java.util.Scanner;
 // If the function returns true (it creates infinite loop) add that spot to a list then replace the # back to a "."
 
 
-public class Day6 {
+public class Day6P2 {
     public static void main(String[] args) {
         ArrayList<String> dataList = new ArrayList<String>();
 
