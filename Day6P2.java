@@ -45,11 +45,23 @@ public class Day6P2 {
                 inputList[i][j] = dataList.get(i).charAt(j);
             }
         }
-        
-        // for (char[] item : inputList) {
-        //     System.out.println(Arrays.toString(item));
-        // }
 
+        int count = 0;
+        for (int i = 0; i < inputList.length; i++) {
+            for (int j = 0; j < inputList[i].length; j++) {
+                if (inputList[i][j] == '.') {
+                    inputList[i][j] = '#';
+                    if (completeMaze(inputList)) {
+                        count += 1;
+                    }
+                    inputList[i][j] ='.';
+                }
+            }
+        }
+        System.out.println(count);
+    }
+
+    public static boolean completeMaze(char[][] inputList) {
         int currentX = 0;
         int currentY = 0;
         String direction = "North";
@@ -62,26 +74,14 @@ public class Day6P2 {
                 }
             }
         }
-        // System.out.println(currentY);
-        // System.out.println(currentX);
-
-        ArrayList<String> positionsBeen = new ArrayList<>();
-        String temp = Integer.toString(currentY) + "," + Integer.toString(currentX);
-        positionsBeen.add(temp);
 
 
-
-        //check spot above cursor
         int moved = 0;
         while (currentX > 0 && currentX < inputList[0].length-1 && currentY > 0 && currentY < inputList.length-1) {
             if (direction.equals("North")) {
                 if (inputList[currentY-1][currentX] != '#') {
                     currentY = currentY - 1;
                     moved += 1;
-                    String temp2 = Integer.toString(currentY) + "," + Integer.toString(currentX);
-                    if (!positionsBeen.contains(temp2)) {
-                        positionsBeen.add(temp2);
-                    }
                     
                 } else if (inputList[currentY-1][currentX] == '#') {
                     direction = "East";
@@ -91,10 +91,7 @@ public class Day6P2 {
                 if (inputList[currentY][currentX+1] != '#') {
                     currentX += 1;
                     moved += 1;
-                    String temp3 = Integer.toString(currentY) + "," + Integer.toString(currentX);
-                    if (!positionsBeen.contains(temp3)) {
-                        positionsBeen.add(temp3);
-                    }
+
                 } else if (inputList[currentY][currentX+1] == '#') {
                     direction = "South";
                 }
@@ -103,10 +100,7 @@ public class Day6P2 {
                 if (inputList[currentY+1][currentX] != '#') {
                     currentY += 1;
                     moved += 1;
-                    String temp4 = Integer.toString(currentY) + "," + Integer.toString(currentX);
-                    if (!positionsBeen.contains(temp4)) {
-                        positionsBeen.add(temp4);
-                    }
+                    
                 } else if (inputList[currentY+1][currentX] == '#') {
                     direction = "West";
                 }
@@ -115,24 +109,18 @@ public class Day6P2 {
                 if (inputList[currentY][currentX-1] != '#') {
                     currentX -= 1;
                     moved += 1;
-                    String temp5 = Integer.toString(currentY) + "," + Integer.toString(currentX);
-                    if (!positionsBeen.contains(temp5)) {
-                        positionsBeen.add(temp5);
-                    }
+
                 } else if (inputList[currentY][currentX-1] == '#') {
                     direction = "North";
                 }
             } 
-            if (moved > 6000) {
-                break;
+            if (moved > 10000) {
+                return false; 
             }
         }
-        System.out.println(moved);
+        return true;
 
-        // for (String string : positionsBeen) {
-        //     System.out.println(string);
-        // }
-        // System.out.println(positionsBeen.size());
 
-    }
+        }
+
 }
