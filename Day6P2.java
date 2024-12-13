@@ -14,29 +14,29 @@ public class Day6P2 {
     public static void main(String[] args) {
         ArrayList<String> dataList = new ArrayList<String>();
 
-        // try {
-        // File myObj = new File("input2.6.txt");
-        // Scanner myReader = new Scanner(myObj);
-        // while (myReader.hasNextLine()) {
-        //     String data = myReader.nextLine();
-        //     dataList.add(data);
-        // }
-        // myReader.close();
-        // } catch (FileNotFoundException e) {
-        // System.out.println("An error occurred.");
-        // e.printStackTrace();
-        // }
+        try {
+        File myObj = new File("input2.6.txt");
+        Scanner myReader = new Scanner(myObj);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            dataList.add(data);
+        }
+        myReader.close();
+        } catch (FileNotFoundException e) {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
+        }
 
-        dataList.add("....#.....");
-        dataList.add(".........#");
-        dataList.add("..........");
-        dataList.add("..#.......");
-        dataList.add(".......#..");
-        dataList.add("..........");
-        dataList.add(".#..^.....");
-        dataList.add("........#.");
-        dataList.add("#.........");
-        dataList.add("......#...");
+        // dataList.add("....#.....");
+        // dataList.add(".........#");
+        // dataList.add("..........");
+        // dataList.add("..#.......");
+        // dataList.add(".......#..");
+        // dataList.add("..........");
+        // dataList.add(".#..^.....");
+        // dataList.add("........#.");
+        // dataList.add("#.........");
+        // dataList.add("......#...");
 
 
         char[][] inputList = new char[dataList.size()][dataList.get(0).length()];
@@ -51,7 +51,8 @@ public class Day6P2 {
             for (int j = 0; j < inputList[i].length; j++) {
                 if (inputList[i][j] == '.') {
                     inputList[i][j] = '#';
-                    if (completeMaze(inputList)) {
+                    if (!completeMaze(inputList)) {
+                        printMap(inputList);
                         count += 1;
                     }
                     inputList[i][j] ='.';
@@ -60,6 +61,13 @@ public class Day6P2 {
         }
         System.out.println(count);
     }
+    public static void printMap(char[][] inputList) {
+        for (char[] cs : inputList) {
+            System.out.println(Arrays.toString(cs));
+        }
+        System.out.println();
+    }
+
 
     public static boolean completeMaze(char[][] inputList) {
         int currentX = 0;
