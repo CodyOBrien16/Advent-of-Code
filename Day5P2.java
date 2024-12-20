@@ -80,8 +80,15 @@ public class Day5P2 {
         }
 
 
-        for (int[] item : newPatternList) {
-            System.out.println(Arrays.toString(item));
+        // for (int[] item : newPatternList) {
+        //     System.out.println(Arrays.toString(item));
+        // }
+
+        for (String item : updateList) {
+            if (checkCorrect(newPatternList, item)) {
+                System.out.println(item);
+            }
+            
         }
 
 
@@ -89,6 +96,10 @@ public class Day5P2 {
     }
 
     public static boolean checkCorrect(int[][] patternList, String currentUpdate) {
+        String[] update = currentUpdate.split(",");
+        for (int i = 0; i < patternList.length; i++) {
+            
+        }
         return false;
     }
 
