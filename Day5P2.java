@@ -83,24 +83,57 @@ public class Day5P2 {
         // for (int[] item : newPatternList) {
         //     System.out.println(Arrays.toString(item));
         // }
-
+        
+        ArrayList<String> needCorrected = new ArrayList<>();
         for (String item : updateList) {
-            if (checkCorrect(newPatternList, item)) {
-                System.out.println(item);
+            if (!checkCorrect(newPatternList, item)) {
+                needCorrected.add(item);
             }
             
         }
 
 
 
+
     }
 
-    public static boolean checkCorrect(int[][] patternList, String currentUpdate) {
-        String[] update = currentUpdate.split(",");
-        for (int i = 0; i < patternList.length; i++) {
-            
+    public static boolean checkCorrect(int[][] patternList, String update) {
+        boolean bool = false;
+        String[] updateList = update.split(",");
+        ArrayList<Integer> intUpdateList = new ArrayList<Integer>();
+        for (int i = 0; i < updateList.length; i++) {
+            intUpdateList.add(Integer.parseInt(updateList[i]));
         }
-        return false;
+        for (int i = 0; i < patternList.length; i++) {
+            //check if both numbers of patternlist are in updateList
+            if ((intUpdateList.contains(patternList[i][0]) && (intUpdateList.contains(patternList[i][1])))) {
+                if (intUpdateList.indexOf(patternList[i][0]) < intUpdateList.indexOf(patternList[i][1])) {
+                    bool = true;
+                } else {
+                    return false;
+                }
+            }
+
+        }
+        return bool;
+    }
+
+
+    public static int[] correctList(int[][] patternList, String update) {
+        String[] updateList = update.split(",");
+        ArrayList<Integer> intUpdateList = new ArrayList<Integer>();
+        for (int i = 0; i < updateList.length; i++) {
+            intUpdateList.add(Integer.parseInt(updateList[i]));
+        }
+        for (int i = 0; i < patternList.length; i++) {
+            //check if both numbers of patternlist are in updateList
+            if ((intUpdateList.contains(patternList[i][0]) && (intUpdateList.contains(patternList[i][1])))) {
+                if (intUpdateList.indexOf(patternList[i][0]) < intUpdateList.indexOf(patternList[i][1])) {
+                } else {
+                }
+            }
+
+        }
     }
 
 }
