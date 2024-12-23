@@ -92,6 +92,11 @@ public class Day5P2 {
             
         }
 
+        ArrayList<int[]> finallyChangedList = new ArrayList<>();
+        for (String item : needCorrected) {
+            finallyChangedList.add(correctList(newPatternList, item));
+        }
+
 
 
 
@@ -119,20 +124,29 @@ public class Day5P2 {
     }
 
 
+
+    //add the logic to reviece a bad list and make it a good list and return it. 
     public static int[] correctList(int[][] patternList, String update) {
+        boolean bool = false;
         String[] updateList = update.split(",");
         ArrayList<Integer> intUpdateList = new ArrayList<Integer>();
         for (int i = 0; i < updateList.length; i++) {
             intUpdateList.add(Integer.parseInt(updateList[i]));
         }
+        while (bool == false) {
         for (int i = 0; i < patternList.length; i++) {
             //check if both numbers of patternlist are in updateList
             if ((intUpdateList.contains(patternList[i][0]) && (intUpdateList.contains(patternList[i][1])))) {
                 if (intUpdateList.indexOf(patternList[i][0]) < intUpdateList.indexOf(patternList[i][1])) {
+                    continue;
                 } else {
+                    //flip them
                 }
             }
+            // add checker to see if list works now and change bool to true.
+            //might need to make another checker method that can take a int[] parameter.
 
+        }
         }
     }
 
