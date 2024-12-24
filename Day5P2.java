@@ -137,12 +137,18 @@ public class Day5P2 {
         for (int i = 0; i < patternList.length; i++) {
             //check if both numbers of patternlist are in updateList
             if ((intUpdateList.contains(patternList[i][0]) && (intUpdateList.contains(patternList[i][1])))) {
-                if (intUpdateList.indexOf(patternList[i][0]) < intUpdateList.indexOf(patternList[i][1])) {
+                int index1 = intUpdateList.indexOf(patternList[i][0]);
+                int index2 = intUpdateList.indexOf(patternList[i][1]);
+                if (index1 < index2) {
                     continue;
                 } else {
                     //flip them
+                    // int temp = patternList[i][0];
+                    intUpdateList.set(index1, patternList[i][1]);
+                    intUpdateList.set(index2, patternList[i][0]);
                 }
             }
+            
             // add checker to see if list works now and change bool to true.
             //might need to make another checker method that can take a int[] parameter.
 
