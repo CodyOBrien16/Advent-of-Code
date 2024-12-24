@@ -92,9 +92,13 @@ public class Day5P2 {
             
         }
 
-        ArrayList<int[]> finallyChangedList = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> finallyChangedList = new ArrayList<>();
         for (String item : needCorrected) {
             finallyChangedList.add(correctList(newPatternList, item));
+        }
+
+        for (ArrayList<Integer> item : finallyChangedList) {
+            System.out.println(Arrays.toString(item.toArray()));
         }
 
 
@@ -126,7 +130,7 @@ public class Day5P2 {
 
 
     //add the logic to reviece a bad list and make it a good list and return it. 
-    public static int[] correctList(int[][] patternList, String update) {
+    public static ArrayList<Integer> correctList(int[][] patternList, String update) {
         boolean bool = false;
         String[] updateList = update.split(",");
         ArrayList<Integer> intUpdateList = new ArrayList<Integer>();
@@ -134,26 +138,45 @@ public class Day5P2 {
             intUpdateList.add(Integer.parseInt(updateList[i]));
         }
         while (bool == false) {
+            for (int i = 0; i < patternList.length; i++) {
+                //check if both numbers of patternlist are in updateList
+                if ((intUpdateList.contains(patternList[i][0]) && (intUpdateList.contains(patternList[i][1])))) {
+                    int index1 = intUpdateList.indexOf(patternList[i][0]);
+                    int index2 = intUpdateList.indexOf(patternList[i][1]);
+                    if (index1 < index2) {
+                        continue;
+                    } else {
+                        //flip them
+                        // int temp = patternList[i][0];
+                        intUpdateList.set(index1, patternList[i][1]);
+                        intUpdateList.set(index2, patternList[i][0]);
+                    }
+                }
+            }
+            if (checkCorrectList(patternList, intUpdateList)) {
+                bool = true;
+            }
+                // add checker to see if list works now and change bool to true.
+                //might need to make another checker method that can take a int[] parameter.
+        }
+        return intUpdateList;
+    }
+
+
+    public static boolean checkCorrectList(int[][] patternList, ArrayList<Integer> intUpdateList) {
+        boolean bool = false;
         for (int i = 0; i < patternList.length; i++) {
             //check if both numbers of patternlist are in updateList
             if ((intUpdateList.contains(patternList[i][0]) && (intUpdateList.contains(patternList[i][1])))) {
-                int index1 = intUpdateList.indexOf(patternList[i][0]);
-                int index2 = intUpdateList.indexOf(patternList[i][1]);
-                if (index1 < index2) {
-                    continue;
+                if (intUpdateList.indexOf(patternList[i][0]) < intUpdateList.indexOf(patternList[i][1])) {
+                    bool = true;
                 } else {
-                    //flip them
-                    // int temp = patternList[i][0];
-                    intUpdateList.set(index1, patternList[i][1]);
-                    intUpdateList.set(index2, patternList[i][0]);
+                    return false;
                 }
             }
-            
-            // add checker to see if list works now and change bool to true.
-            //might need to make another checker method that can take a int[] parameter.
 
         }
-        }
+        return bool;
     }
 
 }
