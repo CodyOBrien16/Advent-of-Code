@@ -8,47 +8,47 @@ public class Day5P2 {
     public static void main(String[] args) {
         ArrayList<String> dataList = new ArrayList<String>();
 
-        // try {
-        // File myObj = new File("input2.5.txt");
-        // Scanner myReader = new Scanner(myObj);
-        // while (myReader.hasNextLine()) {
-        //     String data = myReader.nextLine();
-        //     dataList.add(data);
-        // }
-        // myReader.close();
-        // } catch (FileNotFoundException e) {
-        // System.out.println("An error occurred.");
-        // e.printStackTrace();
-        // }
+        try {
+        File myObj = new File("input2.5.txt");
+        Scanner myReader = new Scanner(myObj);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            dataList.add(data);
+        }
+        myReader.close();
+        } catch (FileNotFoundException e) {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
+        }
 
-        dataList.add("47|53");
-        dataList.add("97|13");
-        dataList.add("97|61");
-        dataList.add("97|47");
-        dataList.add("75|29");
-        dataList.add("61|13");
-        dataList.add("75|53");
-        dataList.add("29|13");
-        dataList.add("97|29");
-        dataList.add("53|29");
-        dataList.add("61|53");
-        dataList.add("97|53");
-        dataList.add("61|29");
-        dataList.add("47|13");
-        dataList.add("75|47");
-        dataList.add("97|75");
-        dataList.add("47|61");
-        dataList.add("75|61");
-        dataList.add("47|29");
-        dataList.add("75|13");
-        dataList.add("53|13");
-        dataList.add("");
-        dataList.add("75,47,61,53,29");
-        dataList.add("97,61,53,29,13");
-        dataList.add("75,29,13");
-        dataList.add("75,97,47,61,53");
-        dataList.add("61,13,29");
-        dataList.add("97,13,75,29,47");
+        // dataList.add("47|53");
+        // dataList.add("97|13");
+        // dataList.add("97|61");
+        // dataList.add("97|47");
+        // dataList.add("75|29");
+        // dataList.add("61|13");
+        // dataList.add("75|53");
+        // dataList.add("29|13");
+        // dataList.add("97|29");
+        // dataList.add("53|29");
+        // dataList.add("61|53");
+        // dataList.add("97|53");
+        // dataList.add("61|29");
+        // dataList.add("47|13");
+        // dataList.add("75|47");
+        // dataList.add("97|75");
+        // dataList.add("47|61");
+        // dataList.add("75|61");
+        // dataList.add("47|29");
+        // dataList.add("75|13");
+        // dataList.add("53|13");
+        // dataList.add("");
+        // dataList.add("75,47,61,53,29");
+        // dataList.add("97,61,53,29,13");
+        // dataList.add("75,29,13");
+        // dataList.add("75,97,47,61,53");
+        // dataList.add("61,13,29");
+        // dataList.add("97,13,75,29,47");
 
 
         ArrayList<String> patternList = new ArrayList<>();
@@ -97,11 +97,26 @@ public class Day5P2 {
             finallyChangedList.add(correctList(newPatternList, item));
         }
 
-        for (ArrayList<Integer> item : finallyChangedList) {
-            System.out.println(Arrays.toString(item.toArray()));
+        // for (ArrayList<Integer> item : finallyChangedList) {
+        //     System.out.println(Arrays.toString(item.toArray()));
+        // }
+
+        int[] finalTotalList = new int[finallyChangedList.size()];
+        // for (String item : finallyChangedList) {
+        for (int i = 0; i < finallyChangedList.size(); i++) {
+            ArrayList<Integer> temp = finallyChangedList.get(i);
+            if (temp.size() % 2 == 0) { //even
+                finalTotalList[i] = temp.get((temp.size() / 2)-1);
+            } else if (temp.size() % 2 == 1) {
+                int temp3 = Math.round((temp.size()) / 2);
+                finalTotalList[i] = temp.get(temp3);
+            }
         }
-
-
+        int theFinalTotal = 0;
+        for (int item : finalTotalList) {
+            theFinalTotal += item;
+        }
+        System.out.println(theFinalTotal);
 
 
     }
